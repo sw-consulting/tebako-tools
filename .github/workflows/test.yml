@@ -97,8 +97,8 @@ jobs:
         run: |
           git clone --depth 1 https://github.com/${{ github.repository_owner }}/tebako-tools
           ls
-          pwd
           ls tebako-tools
+          ls tebako-tools/tests
 
       - name: Run cmake script
         run: |
