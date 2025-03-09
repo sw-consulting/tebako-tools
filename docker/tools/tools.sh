@@ -35,25 +35,25 @@ set -o errexit -o pipefail -o noclobber -o nounset
 
 install_cmake() {
   echo "Running install_cmake for CMake version ${CMAKE_VERSION} for ${ARCH}"
-  local cmake_install=${LOCAL_BUILDS}/cmake
-  mkdir -p ${cmake_install}
-  pushd ${cmake_install}
-  wget -nv https://github.com/xpack-dev-tools/cmake-xpack/releases/download/v${CMAKE_VERSION}/xpack-cmake-${CMAKE_VERSION}-linux-${ARCH}.tar.gz
-  tar -zxf xpack-cmake-${CMAKE_VERSION}-linux-${ARCH}.tar.gz --directory /usr --strip-components=1 --skip-old-files
+  local cmake_install="${LOCAL_BUILDS}/cmake"
+  mkdir -p "${cmake_install}"
+  pushd "${cmake_install}"
+  wget -nv "https://github.com/xpack-dev-tools/cmake-xpack/releases/download/v${CMAKE_VERSION}/xpack-cmake-${CMAKE_VERSION}-linux-${ARCH}.tar.gz"
+  tar -zxf "xpack-cmake-${CMAKE_VERSION}-linux-${ARCH}.tar.gz" --directory /usr --strip-components=1 --skip-old-files
   popd
-  rm -rf ${cmake_install}
+  rm -rf "${cmake_install}"
 }
 
 install_ruby() {
   echo "Running ruby_install version ${RUBY_INSTALL_VERSION} for Ruby ${RUBY_VERSION}"
   local ruby_install=${LOCAL_BUILDS}/ruby_install
-  mkdir -p ${ruby_install}
-  pushd ${ruby_install}
-  wget -nv https://github.com/postmodern/ruby-install/releases/download/v${RUBY_INSTALL_VERSION}/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz && \
-  tar -xzvf ruby-install-${RUBY_INSTALL_VERSION}.tar.gz
-  cd ruby-install-${RUBY_INSTALL_VERSION}
+  mkdir -p "${ruby_install}"
+  pushd "${ruby_install}""
+  wget -nv "https://github.com/postmodern/ruby-install/releases/download/v${RUBY_INSTALL_VERSION}/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz"
+  tar -xzvf "ruby-install-${RUBY_INSTALL_VERSION}.tar.gz"
+  cd "ruby-install-${RUBY_INSTALL_VERSION}"
   make install
-  ruby-install --system ruby ${RUBY_VERSION} -- --without-gmp --disable-dtrace --disable-debug-env --disable-install-doc CC=${CC}
+  ruby-install --system ruby "${RUBY_VERSION}" -- --without-gmp --disable-dtrace --disable-debug-env --disable-install-doc CC="${CC}"
   popd
   rm -rf ${ruby_install}
 }
