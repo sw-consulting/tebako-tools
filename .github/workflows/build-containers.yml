@@ -46,7 +46,7 @@ jobs:
           fetch-depth: 0
 
       - name: Set GITHUB_REF
-        if: github.event_name == 'workflow_run'
+        if: github.event_name == 'workflow_dispatch'
         run: |
             if [[ "${{ github.event.inputs.next_version }}" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
               # Direct version number provided
