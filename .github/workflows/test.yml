@@ -273,7 +273,7 @@ jobs:
           - { host: 'ubuntu-22.04-arm', platform: linux/arm64 }
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v1
 
       - name: Run cmake script
         run: |
