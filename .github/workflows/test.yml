@@ -76,17 +76,19 @@ jobs:
           test -f build/setup-libfmt/deps/lib/pkgconfig/fmt.pc
 
   test-setup-libfmt-co:
-    name: test setup-libfmt on ${{ matrix.container }}
-    runs-on: ubuntu-latest
+    name: test setup-libfmt on ${{ matrix.host }} / ${{ matrix.container }}
+    runs-on: ${{ matrix.host }}
     container:
-      image: ${{ matrix.container }}
+      image: 'ghcr.io/${{ github.repository_owner }}/tebako-${{ matrix.container }}'
     defaults:
       run:
         shell: bash
     strategy:
       fail-fast: false
       matrix:
-        container: [ 'ghcr.io/${{ github.repository_owner }}/tebako-ubuntu-20.04-dev', 'ghcr.io/${{ github.repository_owner }}/tebako-alpine-3.17-dev' ]
+        container: [ 'ubuntu-20.04-dev', 'alpine-3.17-dev' ]
+        host: ['ubuntu-22.04', ubuntu-22.04-arm]
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
