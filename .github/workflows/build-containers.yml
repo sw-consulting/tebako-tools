@@ -8,6 +8,7 @@ on:
         description: |
           Next container version: x.y.z or major/minor/patch
         required: true
+        default: 'patch'
       push:
         description: |
           Push the container images to the registry
@@ -120,7 +121,7 @@ jobs:
         uses: docker/build-push-action@v6
         with:
           context: docker
-          file: ${{ matrix.container }}.Dockerfile
+          file: docker/${{ matrix.container }}.Dockerfile
           push:  ${{ github.event.inputs.push == 'true' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
