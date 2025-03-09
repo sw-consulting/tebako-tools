@@ -80,6 +80,9 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ${{ matrix.container }}
+    defaults:
+      run:
+        shell: bash
     strategy:
       fail-fast: false
       matrix:
