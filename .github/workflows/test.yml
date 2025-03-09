@@ -95,10 +95,9 @@ jobs:
       #  JavaScript Actions in Alpine containers are only supported on x64 Linux runners. Doing Linux Arm64
       - name: Manual checkout
         run: |
-          git clone --depth 1 https://github.com/${{ github.repository_owner }}/tebako-tools
-          ls
-          ls tebako-tools
-          ls tebako-tools/tests
+            git clone --depth 1 https://github.com/${{ github.repository }} $PWD
+            git fetch origin ${{ github.sha }}
+            git checkout ${{ github.sha }}
 
       - name: Run cmake script
         run: |
