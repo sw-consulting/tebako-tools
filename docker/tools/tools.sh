@@ -61,6 +61,6 @@ install_ruby() {
 DIR0=$( dirname "$0" )
 DIR_TOOLS=$( cd "$DIR0" && pwd )
 
-echo "Running tools.sh with args: $@, DIR_TOOLS: ${DIR_TOOLS}"
+echo "Running tools.sh with args: $@; DIR_TOOLS: ${DIR_TOOLS}"
 
 "$@"
