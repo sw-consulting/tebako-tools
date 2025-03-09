@@ -95,12 +95,7 @@ jobs:
       #  JavaScript Actions in Alpine containers are only supported on x64 Linux runners. Doing Linux Arm64
       - name: Manual checkout
         run: |
-          git init
-          git remote add origin https://github.com/${{ github.repository }}.git
-          git fetch --depth=1 origin ${{ github.ref }}
-          git checkout -B ${{ github.ref_name }} FETCH_HEAD
-          git submodule update --init --recursive
-
+          git clone https://github.com/${{ github.repository }}.git ${{github.workspace}}/${{ github.repository }}
 
       - name: Run cmake script
         run: |
