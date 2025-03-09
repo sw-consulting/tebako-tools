@@ -101,7 +101,7 @@ jobs:
 
       - name: Run cmake script
         run: |
-          cmake -B build/setup-libfmt -DROOT=$PWD -S tebako-tools/tests/setup-libfmt
+          cmake -B build/setup-libfmt -DROOT=$PWD -S tests/setup-libfmt
           cmake --build build/setup-libfmt
 
       - name: Test setup-libfmt
