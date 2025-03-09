@@ -55,12 +55,12 @@ install_ruby() {
   make install
   ruby-install --system ruby "${RUBY_VERSION}" -- --without-gmp --disable-dtrace --disable-debug-env --disable-install-doc CC="${CC}"
   popd
-  rm -rf ${ruby_install}
+  rm -rf "${ruby_install}"
 }
 
 DIR0=$( dirname "$0" )
 DIR_TOOLS=$( cd "$DIR0" && pwd )
 
-echo "Running tools.sh with args: $@; DIR_TOOLS: ${DIR_TOOLS}"
+echo Running tools.sh with args: "$@", DIR_TOOLS: "${DIR_TOOLS}"
 
 "$@"
