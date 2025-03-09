@@ -83,7 +83,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        container: [ 'ubuntu:20.04', 'alpine:3.17' ]
+        container: [ 'ghcr.io/${{ github.repository_owner }}/tebako-ubuntu-20.04-dev', 'ghcr.io/${{ github.repository_owner }}/tebako-alpine-3.17-dev' ]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -228,7 +228,7 @@ jobs:
     name: test openssl 1.1.1 setup on alpine
     runs-on: ubuntu-latest
     container:
-      image: alpine:3.17
+      image: 'ghcr.io/${{ github.repository_owner }}/tebako-alpine-3.17-dev'
 
     steps:
       - name: Install packages
