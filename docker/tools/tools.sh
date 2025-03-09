@@ -48,7 +48,7 @@ install_ruby() {
   echo "Running ruby_install version ${RUBY_INSTALL_VERSION} for Ruby ${RUBY_VERSION}"
   local ruby_install=${LOCAL_BUILDS}/ruby_install
   mkdir -p "${ruby_install}"
-  pushd "${ruby_install}""
+  pushd "${ruby_install}"
   wget -nv "https://github.com/postmodern/ruby-install/releases/download/v${RUBY_INSTALL_VERSION}/ruby-install-${RUBY_INSTALL_VERSION}.tar.gz"
   tar -xzvf "ruby-install-${RUBY_INSTALL_VERSION}.tar.gz"
   cd "ruby-install-${RUBY_INSTALL_VERSION}"
@@ -61,6 +61,6 @@ install_ruby() {
 DIR0=$( dirname "$0" )
 DIR_TOOLS=$( cd "$DIR0" && pwd )
 
-echo Running tools.sh with args: "$@", DIR_TOOLS: "${DIR_TOOLS}"
+echo "Running tools.sh with args: $@; DIR_TOOLS: ${DIR_TOOLS}"
 
 "$@"
