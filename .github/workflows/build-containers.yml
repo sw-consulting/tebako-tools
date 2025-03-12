@@ -123,14 +123,14 @@ jobs:
             type=semver,pattern={{major}}-${{ matrix.architecture.suffix2 }},value=${{ env.VERSION }}
             type=sha,suffix=-${{ matrix.architecture.suffix2 }}
           labels: |
-            org.opencontainers.image.vendor=Maxim Samsonov
-            org.opencontainers.image.licenses=MIT
-            org.opencontainers.image.documentation=https://sw.consulting
+            org.opencontainers.image.vendor=Ribose Inc.
+            org.opencontainers.image.licenses=BSD-2-Clause
+            org.opencontainers.image.documentation=https://www.tamatebako.org
             org.opencontainers.image.source==${{ github.repositoryUrl }}
-            org.opencontainers.image.description=Tebako ${{ matrix.container }} ${{ matrix.architecture.platform }} development container
+            org.opencontainers.image.description=Tebako executable packager ${{ matrix.container }} ${{ matrix.architecture.platform }} development container
           annotations: |
-            org.opencontainers.image.licenses=MIT
-            org.opencontainers.image.description=Tebako ${{ matrix.container }} ${{ matrix.architecture.platform }} development container
+            org.opencontainers.image.licenses=BSD-2-Clause
+            org.opencontainers.image.description=Tebako executable packager ${{ matrix.container }} ${{ matrix.architecture.platform }} development container
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
